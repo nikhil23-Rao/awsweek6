@@ -1,0 +1,46 @@
+fact_id,statement,authoritative_doc_id,scope_level,effective_date,owner
+F-POL-01,Production deploys are frozen Fridays after 2 PM PT and on company holidays,CO-PLAT-010,company,2025-03-03,VP Platform Eng
+F-POL-02,"Code review: 2 approvals for Tier 0 and Tier 1 services, 1 for Tier 2 and 3",CO-PLAT-006,company,2024-06-04,Developer Tooling
+F-POL-03,"On-call v3: 1-week rotations, at most 1 in 4 weeks, Sev1 ack within 5 min on Tier 0 and Tier 1",CO-PLAT-013,company,2025-08-12,SRE guild
+F-POL-04,Postmortems due within 5 business days for Sev1 and Sev2,CO-PLAT-008,company,2023-09-19,SRE guild
+F-POL-05,"Access reviews are quarterly (cycles open first business day of Jan, Apr, Jul, Oct; 15 business days per reviewer)",CO-DSEC-001,company,2024-02-12,IT & Compliance
+F-POL-06,"Vulnerability SLAs: Critical 7 days, High 30 days",CO-DSEC-003,company,2024-11-05,AppSec
+F-POL-07,Secrets rotation every 90 days,CO-DSEC-005,company,2025-01-14,AppSec
+F-POL-08,"Logs, traces, and dataset archives: 30 days hot, 13 months archive",CO-DSEC-007,company,2026-01-12,Data Platform
+F-POL-09,"Disaster recovery for Tier 0 and Tier 1: RPO 15 min, RTO 4 hours",CO-PLAT-007,company,2025-01-14,SRE guild
+F-POL-10,Prod access requires a hardware security key (FIDO2/WebAuthn); backup key registered,CO-DSEC-009,company,2025-10-06,IT & Compliance
+F-POL-11,An ADR is required if more than one team is affected,CO-PROD-010,company,2025-04-02,Architecture Review Board
+F-POL-12,Open-source licenses: approved list only; copyleft needs legal review,CO-DSEC-012,company,2025-06-10,Legal via AppSec
+F-POL-13,"Service tiering: Tier 0 core platform, Tier 1 customer-facing, Tier 2 internal, Tier 3 experimental",CO-PROD-012,company,2025-11-04,CTO office
+F-POL-14,"Customer SLA: Enterprise 99.95%, Team and Free 99.9%",CO-PROD-009,company,2026-01-14,CTO office
+F-POL-15,"Data classification: customer-derived data is Confidential by default; Restricted reserved for credentials, payment card data, and regulated identifiers",CO-DSEC-011,company,2025-04-22,CISO
+F-PLAT-001,Each new team namespace on Kestrel gets 40 CPU cores by default; increases go through a ticket to COMP,PLAT-COMP-009,team,2026-06-18,COMP
+F-PLAT-002,All builds and deploys run through TechSync Ship and Gatekeeper CI; Jenkins was retired in May 2026,PLAT-DEVT-013,team,2026-05-27,DEVT
+F-PLAT-003,Meridian Mesh default per-route request timeout is 15 seconds,PLAT-NET-006,team,2026-07-14,NET
+F-PLAT-004,Platform-owned services must soak in staging for at least 60 minutes before prod,ORG-PLAT-018,org,2025-06-11,Platform Engineering
+F-PLAT-005,Gatekeeper CI prod canary sends 5% of traffic for 15 minutes,PLAT-DEVT-015,team,2026-07-09,DEVT
+F-PLAT-006,New services are onboarded as Kestrel namespaces through a COMP ticket (no per-service VM pools since the 2019 Kubernetes migration),PLAT-COMP-009,team,2026-06-18,COMP
+F-PLAT-007,OBS on-call must acknowledge Sev1 pages on Lookout within 3 minutes,PLAT-OBS-002,team,2025-11-04,OBS
+F-PLAT-008,Approved exception: automated kestrel-image-bot node-image patch PRs (images/node/ only) need 1 approval; all other Kestrel changes follow company policy,PLAT-COMP-005,team,2026-02-09,COMP
+F-PROD-001,MOB app-store submissions may go out during the production freeze; other Mobile deploys including Pushline stay frozen,PROD-MOB-001,team,2025-03-18,MOB
+F-PROD-002,Ledger invoice data is classified Restricted,PROD-PAY-001,team,2026-01-20,PAY
+F-PROD-003,Ledger Core service API keys rotate every 90 days (180 days before Jan 2025),CO-DSEC-005,company,2025-01-14,AppSec
+F-PROD-004,"Pushline retries a failed delivery at most 3 times, then dead-letters it",PROD-MOB-002,team,2026-06-10,MOB
+F-PROD-005,A deprecated Ledger public API version is supported for 12 months after the deprecation notice,PROD-PAY-004,team,2026-02-03,PAY
+F-PROD-006,Quarry default query timeout is 120 seconds,PROD-SRCH-001,team,2026-08-11,SRCH
+F-PROD-007,Insight reached GA in June 2024 for all tiers (beta in 2023 was Enterprise only),CO-PROD-004,company,2024-06-01,Technical Writing
+F-PROD-008,Console is owned by Web in Product Engineering; platform and cluster issues escalate to PLAT Compute,ORG-PROD-001,org,2022-01-01,PROD (TPM)
+F-PROD-009,TechSync Mobile minimum iOS is 16 (was 15 before March 2026),PROD-MOB-004,team,2026-03-01,MOB
+F-PROD-010,"Ledger Core invoice schema and public API changes need an ADR even if only PAY is affected, approved by PAY EM and Tech Lead",PROD-PAY-005,team,2026-03-12,PAY
+F-PROD-011,Enterprise availability target for Pushline push delivery to APNs and FCM is 99.9% (approved exception),ORG-PROD-005,org,2026-04-22,PROD (CTO and VP PROD approval)
+F-PROD-012,Console is Tier 1,CO-PROD-012,company,2025-11-04,CTO office
+F-DSEC-001,Keystone (Tier 0) Sev1 pages must be acknowledged within 5 minutes. The ITC runbook's 15-minute figure is not authoritative (no approved exception),CO-PLAT-013,company,2025-08-12,SRE guild
+F-DSEC-002,Vaultline dynamic secrets have a maximum lease of 1 hour,DSEC-SEC-004,team,2026-06-16,AppSec
+F-DSEC-003,"Customer-derived data is Confidential by default; Restricted reserved for credentials, payment card data and regulated identifiers",CO-DSEC-011,company,2025-04-22,CISO
+F-DSEC-004,Keystone SSO sessions last at most 8 hours; apps including Console cannot extend,DSEC-ITC-002,team,2026-06-11,IT & Compliance
+F-DSEC-005,Reservoir tables are partitioned daily by event date,DSEC-DATA-001,team,2026-07-14,Data Platform
+F-DSEC-006,Full threat-model review before staging for DSEC services; exception: lightweight checklist for the 3 named Foundry research sandboxes only,ORG-DSEC-001; DSEC-MLI-002,org; team,2026-01-20; 2026-03-24,DSEC security; MLI
+F-DSEC-007,Sentinel scans every pull request; an open Critical finding blocks merge,DSEC-SEC-001,team,2026-04-08,AppSec
+F-DSEC-008,"Critical findings on SEC-owned services (Sentinel, Vaultline) must be fixed within 3 days",DSEC-SEC-003,team,2025-02-11,AppSec
+F-DSEC-009,"GPL/LGPL allowed in ITC internal-only tools without per-use legal review, logged in ITC license register; AGPL excluded",DSEC-ITC-004,team,2026-02-17,IT & Compliance
+F-DSEC-010,"Access review evidence must be uploaded to Compass for every in-scope system, Tier 3 included",CO-DSEC-001,company,2024-02-12,IT & Compliance
